@@ -43,11 +43,14 @@ class LogglyOutput < Fluent::Output
   end
 
   def emit(tag, es, chain)
+    loggly_tag = tag.gsub('.', ',')
+
     chain.next
     es.each {|time,record|
       record_json = record.to_json
       $log.debug "Record sent #{record_json}"
       post = Net::HTTP::Post.new @uri.path
+      post['X-LOGGLY-TAG'] = loggly_tag
       post.body = record_json
       begin
         response = @http.request @uri, post
