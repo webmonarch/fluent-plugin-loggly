@@ -3,9 +3,9 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "fluent-plugin-loggly"
-  s.version     = "0.0.4"
-  s.authors     = ["Patrik Antonsson"]
-  s.email       = ["patant@gmail.com"]
+  s.version     = "0.0.4.bevbot1"
+  s.authors     = ["Eric Webb", "Patrik Antonsson"]
+  s.email       = ["opensource@bevbot.com", "patant@gmail.com"]
   s.homepage    = "https://github.com/patant/fluent-plugin-loggly"
   s.summary     = %q{Fluentd plugin for output to loggly}
   s.description = %q{Fluentd pluging (fluentd.org) for output to loggly (loggly.com)}
