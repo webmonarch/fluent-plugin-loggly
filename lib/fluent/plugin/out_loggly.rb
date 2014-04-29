@@ -36,6 +36,8 @@ class LogglyOutput < Fluent::Output
     @uri = URI @loggly_url
     @http = Net::HTTP::Persistent.new 'fluentd-plugin-loggly'
     @http.headers['Content-Type'] = 'application/json'
+
+    @fqdn = `hostname -f`.strip
   end
 
   def shutdown
@@ -43,7 +45,7 @@ class LogglyOutput < Fluent::Output
   end
 
   def emit(tag, es, chain)
-    loggly_tag = tag.gsub('.', ',')
+    loggly_tag = "#{@fqdn},#{tag.gsub('.', ',')}"
 
     chain.next
     es.each {|time,record|

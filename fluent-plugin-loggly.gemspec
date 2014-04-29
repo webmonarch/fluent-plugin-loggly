@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "fluent-plugin-loggly"
-  s.version     = "0.0.4.bevbot1"
+  s.version     = "0.0.4.bevbot2"
   s.authors     = ["Eric Webb", "Patrik Antonsson"]
   s.email       = ["opensource@bevbot.com", "patant@gmail.com"]
   s.homepage    = "https://github.com/patant/fluent-plugin-loggly"
